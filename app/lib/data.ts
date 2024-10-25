@@ -99,10 +99,10 @@ export async function fetchCardData()
 }
 
 const ITEMS_PER_PAGE = 6
+
 export async function fetchFilteredInvoices(
-  query: string,
-  currentPage: number,
-) {
+  query: string, currentPage: number)
+{
   const offset = (currentPage - 1) * ITEMS_PER_PAGE
 
   try 
@@ -176,7 +176,8 @@ export async function fetchInvoiceById(id: string)
       WHERE invoices.id = ${id}
     `
 
-    const invoice = data.rows.map((invoice) => ({
+    const invoice = data.rows.map((invoice) => (
+    {
       ...invoice,
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
